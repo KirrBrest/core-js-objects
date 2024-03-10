@@ -36,8 +36,42 @@ function shallowCopy(obj) {
  *    mergeObjects([{a: 1, b: 2}, {b: 3, c: 5}]) => {a: 1, b: 5, c: 5}
  *    mergeObjects([]) => {}
  */
-function mergeObjects(/* objects */) {
-  throw new Error('Not implemented');
+function mergeObjects(objects) {
+  // throw new Error('Not implemented');
+
+  // const result = Object.assign(...objects);
+
+  // const result = objects.reduce((r, o) => {
+  //   for (let key in o) {
+  //     r[key] += o[key];
+  //   }
+  //   return r;
+  // }, {});
+
+  // let result = Object.fromEntries(resultArr);
+  // let resultArr = [];
+  //   for (let i = 0; i < objects.length; i++) {
+  //     let arr[i] = Object.entries(objects[i]);
+  //     for (let j = 0; j < arr[i].length; j++) {
+  //       if (key[i][j] = key[i + 1][j]) {
+  //         resultArr.push(key[i][j]: value[i][j] += value[i + 1][j]); // todo  - something wrong
+  //       }
+  //     }
+  //   }
+
+  // return result;
+
+  const o = {};
+  objects.forEach((object) => {
+    Object.entries(object).forEach(([key, value]) => {
+      if (key in o) {
+        o[key] += value;
+      } else {
+        o[key] = value;
+      }
+    });
+  });
+  return o;
 }
 
 /**
@@ -53,8 +87,17 @@ function mergeObjects(/* objects */) {
  *    removeProperties({name: 'John', age: 30, city: 'New York'}, 'age') => {name: 'John', city: 'New York'}
  *
  */
-function removeProperties(/* obj, keys */) {
-  throw new Error('Not implemented');
+function removeProperties(obj, keys) {
+  // throw new Error('Not implemented');
+  const o = obj;
+  keys.forEach((key) => {
+    Object.entries(obj).forEach(([k]) => {
+      if (key === k) {
+        delete o[k];
+      }
+    });
+  });
+  return o;
 }
 
 /**
