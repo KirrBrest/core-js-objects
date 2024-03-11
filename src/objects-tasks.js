@@ -112,8 +112,19 @@ function removeProperties(obj, keys) {
  *    compareObjects({a: 1, b: 2}, {a: 1, b: 2}) => true
  *    compareObjects({a: 1, b: 2}, {a: 1, b: 3}) => false
  */
-function compareObjects(/* obj1, obj2 */) {
-  throw new Error('Not implemented');
+function compareObjects(obj1, obj2) {
+  // throw new Error('Not implemented');
+  let result = true;
+  Object.entries(obj1).forEach(([k1, v1]) => {
+    Object.entries(obj2).forEach(([k2, v2]) => {
+      if (k1 === k2 && v1 === v2) {
+        result = true;
+      } else {
+        result = false;
+      }
+    });
+  });
+  return result;
 }
 
 /**
@@ -127,8 +138,13 @@ function compareObjects(/* obj1, obj2 */) {
  *    isEmptyObject({}) => true
  *    isEmptyObject({a: 1}) => false
  */
-function isEmptyObject(/* obj */) {
-  throw new Error('Not implemented');
+function isEmptyObject(obj) {
+  // throw new Error('Not implemented');
+  let result = true;
+  if (Object.keys(obj).length > 0) {
+    result = false;
+  }
+  return result;
 }
 
 /**
