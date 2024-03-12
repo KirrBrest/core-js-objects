@@ -179,13 +179,39 @@ function makeImmutable(obj) {
  *    makeWord({ H:[0], e: [1], l: [2, 3, 8], o: [4, 6], W:[5], r:[7], d:[9]}) => 'HelloWorld'
  */
 
-// let result = '';
 function makeWord(/* lettersObject */) {
+  // function makeWord(lettersObject) {
   throw new Error('Not implemented');
-  // Object.entries(lettersObject).forEach(([k, v]) => {
-  //   console.log(k, v);
+  // let result = '';
+  // const arr = [];
+  // let count = 0;
+  // function foo() {
+  //   Object.entries(lettersObject).forEach(([k, v]) => {
+  //     console.log(k, v);
 
+  //     for (let i = 0; i < v.length; i += 1) {
+  //       if (v[i] <= arr.length && k !== arr[v[i]]) {
+  //         arr.splice(v[i], 0, k);
+  //         console.log(`arr=${arr}`);
+  //         console.log(k);
+  //         console.log(arr[v[i]]);
+  //       }
+  //       if (count < v[i]) {
+  //         count = v[i];
+  //       }
+  //       // console.log(`count = ${count}`);
+  //     }
+  //   });
+  // }
+  // foo();
+  // if (arr.length <= count + 1) {
+  //   foo();
+  // }
+  // console.log(arr);
+  // arr.forEach((l) => {
+  //   result += l;
   // });
+  // console.log(result);
   // return result;
 }
 
@@ -203,8 +229,22 @@ function makeWord(/* lettersObject */) {
  *    sellTickets([25, 25, 50]) => true
  *    sellTickets([25, 100]) => false (The seller does not have enough money to give change.)
  */
-function sellTickets(/* queue */) {
-  throw new Error('Not implemented');
+function sellTickets(queue) {
+  // throw new Error('Not implemented');
+  console.log(queue);
+  let result = true;
+  // Object.entries(queue).forEach(([v]) => {
+  // console.log(v);
+  let count = 0;
+  for (let i = 0; i < queue.length; i += 1) {
+    count += queue[i];
+    if (count < queue[i + 1]) {
+      result = false;
+      // console.log(queue[i]);
+    }
+  }
+  // });
+  return result;
 }
 
 /**
