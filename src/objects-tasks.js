@@ -231,7 +231,6 @@ function makeWord(/* lettersObject */) {
  */
 function sellTickets(queue) {
   // throw new Error('Not implemented');
-  // console.log(queue);
   let result = true;
   let count = 0;
   for (let i = 0; i < queue.length; i += 1) {
