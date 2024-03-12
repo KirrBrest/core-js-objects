@@ -231,10 +231,8 @@ function makeWord(/* lettersObject */) {
  */
 function sellTickets(queue) {
   // throw new Error('Not implemented');
-  console.log(queue);
+  // console.log(queue);
   let result = true;
-  // Object.entries(queue).forEach(([v]) => {
-  // console.log(v);
   let count = 0;
   for (let i = 0; i < queue.length; i += 1) {
     count += queue[i];
@@ -243,7 +241,6 @@ function sellTickets(queue) {
       // console.log(queue[i]);
     }
   }
-  // });
   return result;
 }
 
